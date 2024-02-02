@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.item {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 2px 2px 4px #000000;
+}
