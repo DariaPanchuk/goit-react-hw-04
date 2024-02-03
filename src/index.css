@@ -3,6 +3,7 @@ body {
   background: rgb(34, 193, 195);
   background: linear-gradient(0deg, rgba(34, 193, 195, 0.5) 0%, rgba(253, 45, 126, 0.5) 100%);
   background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 h1,
