@@ -8,10 +8,10 @@ export const ImageGallery = ({ items, onClick }) => {
             {
                 items.map(item => (
                     <li key={item.id} className={css.item} onClick={() => onClick(item)}>
-                        <ImageCard item={item}/>
+                        <ImageCard item={item} />
                     </li>
                 ))
             }
         </ul>
-    )
-}
+    );
+};

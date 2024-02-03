@@ -5,5 +5,5 @@ export const LoadMoreBtn = ({ onClick }) => {
         <div className={css.container}>
             <button className={css.button} type="button" onClick={onClick} >Load More</button>
         </div>
-    )
-}
+    );
+};

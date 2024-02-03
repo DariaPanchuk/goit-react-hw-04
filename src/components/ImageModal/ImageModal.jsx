@@ -5,7 +5,7 @@ import css from './ImageModal.module.css';
 
 Modal.setAppElement('#root');
 
-export const ImageModal = ({ isOpen, onAfterOpen, onRequestClose, selectedItem: {urls, alt_description, description} }) => {
+export const ImageModal = ({ isOpen, onAfterOpen, onRequestClose, selectedItem: { urls, alt_description, description } }) => {
     
     return (
         <div>
@@ -23,10 +23,10 @@ export const ImageModal = ({ isOpen, onAfterOpen, onRequestClose, selectedItem: 
                 </IconContext.Provider>
 
                 <div className={css.container}>
-                <img className={css.image} src={urls.regular} alt={alt_description} width="600" />
-                <p className={css.desc}>{description}</p>
+                    <img className={css.image} src={urls.regular} alt={alt_description} width="600" />
+                    <p className={css.desc}>{description}</p>
                 </div>
             </Modal>
         </div>
     );
-}
+};

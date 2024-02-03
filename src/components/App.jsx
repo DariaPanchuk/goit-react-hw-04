@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
 import { SearchBar } from './SearchBar/SearchBar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Loader } from './Loader/Loader';
@@ -10,7 +10,7 @@ import { ImageModal } from './ImageModal/ImageModal';
 import { fetch } from '../api';
 import css from './App.module.css';
 
-function App() {
+export const App = () => {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [images, setImages] = useState([]);
@@ -18,7 +18,6 @@ function App() {
   const [error, setError] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
-  
 
   const searchImages = async newQuery => {
     const id = nanoid(5);
@@ -77,6 +76,4 @@ function App() {
       <Toaster />
     </div>
   );
-}
-
-export default App
+};
