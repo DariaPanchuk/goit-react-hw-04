@@ -55,6 +55,9 @@ function App() {
   function openModal(item) {
     setSelectedItem(item);
     setIsOpen(true);
+  }
+
+  function afterOpenModal() {
     document.body.style.overflow = "hidden";
   }
 
@@ -69,7 +72,7 @@ function App() {
       {images.length > 0 && <ImageGallery items={images} onClick={openModal} />}
       {load && <Loader />}
       {error && <ErrorMessage />}
-      {modalIsOpen && <ImageModal isOpen={modalIsOpen} onRequestClose={closeModal} selectedItem={selectedItem} />}
+      {selectedItem && <ImageModal isOpen={modalIsOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal} selectedItem={selectedItem} />}
       {images.length > 0 && !load && (<LoadMoreBtn onClick={handleClick} />)}
       <Toaster />
     </div>

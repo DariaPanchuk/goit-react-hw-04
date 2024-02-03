@@ -5,12 +5,13 @@ import css from './ImageModal.module.css';
 
 Modal.setAppElement('#root');
 
-export const ImageModal = ({ isOpen, onRequestClose, selectedItem: {urls, alt_description, description} }) => {
+export const ImageModal = ({ isOpen, onAfterOpen, onRequestClose, selectedItem: {urls, alt_description, description} }) => {
     
     return (
         <div>
             <Modal
                 isOpen={isOpen}
+                onAfterOpen={onAfterOpen}
                 onRequestClose={onRequestClose}
                 className={css.modal}
                 overlayClassName={css.backdrop}
