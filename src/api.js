@@ -10,5 +10,5 @@ export const fetch = async (query, page) => {
             per_page: 26,
         },
     });
-    return response.data.results;
+    return response.data;
 }

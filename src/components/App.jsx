@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Toaster } from 'react-hot-toast';
+import { useState, useEffect, useRef } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { nanoid } from 'nanoid';
 import { SearchBar } from './SearchBar/SearchBar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
@@ -19,13 +19,16 @@ export const App = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
+  const totalPages = useRef(0);
+
   const searchImages = async newQuery => {
     const id = nanoid(5);
     setQuery(`${id}-${newQuery}`);
     setPage(1);
     setImages([]);
+    totalPages.current = 0;
   }
-
+  
   useEffect(() => {
     if (query === "") {
       return
@@ -35,8 +38,16 @@ export const App = () => {
       try {
         setLoad(true);
         setError(false);
-        const fetchedImages = await fetch(query.split('-')[1], page);
-        setImages(prevImages => [...prevImages, ...fetchedImages]);
+        const fetchedData = await fetch(query.split('-')[1], page);
+        setImages(prevImages => [...prevImages, ...fetchedData.results]);
+        totalPages.current = fetchedData.total_pages;
+
+        if (totalPages.current === 0) {
+          toast.error('Oops, please try another word!', {
+            duration: 2000,
+            position: 'bottom-center',
+          });
+        }
       } catch {
         setError(true);
       } finally {
